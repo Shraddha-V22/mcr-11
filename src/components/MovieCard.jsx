@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useMovies } from "../contexts/movieProvider";
 import { MOVIE } from "../utils/reducerTypes";
 
-export default function MovieCard({ movie }) {
+export default function MovieCard({ movie, inWatchlist }) {
   const {
     dispatch,
     movieData: { starred, watchlist },
@@ -42,7 +42,11 @@ export default function MovieCard({ movie }) {
             }}
             className="rounded-md border bg-gray-500 p-2 text-xs text-white active:bg-gray-600"
           >
-            {watchlist.includes(id) ? "Added to Watchlist" : "Add to Watchlist"}
+            {!watchlist.includes(id)
+              ? "Add to Watchlist"
+              : inWatchlist
+              ? "Remove from Watchlist"
+              : "Added to Watchlist"}
           </button>
         </div>
       </div>

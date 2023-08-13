@@ -19,7 +19,7 @@ export default function WatchList() {
       {watchlistMovies.length > 0 ? (
         <div className="flex flex-col gap-4 ">
           {watchlistMovies?.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} />
+            <MovieCard key={movie.id} movie={movie} inWatchlist />
           ))}
         </div>
       ) : (
